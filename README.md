@@ -66,6 +66,7 @@ and execute the `commit` and `push` docker commands.
 3. Go to menu > Preferences > Security
 4. Ensure that "Allow connections from network clients" is selected
 5. Shutdown and restart XQuartz
+6. In console, run `xhost + 127.0.0.1`
 At this point, XQuartz should allow connections from the Docker contianer
 
 ## Building the Container
