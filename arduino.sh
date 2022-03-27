@@ -9,12 +9,11 @@ docker run \
     --rm \
     --network=host \
     --privileged \
-    -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY="host.docker.internal:0" \
     -v /dev:/dev \
     -v $HOME/topics:/topics \
     -v $HOME/topics/arduino:/home/developer/Arduino \
     --name arduino \
-    tombenke/darduino:v1.8.5 \
+    jteich/darduino:latest  \
     arduino
 

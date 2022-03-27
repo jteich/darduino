@@ -28,7 +28,7 @@ Run this if you want the container to be removed after the session:
         -v $HOME/.Xauthority:/home/developer/.Xauthority \
         --device /dev/ttyUSB0:/dev/ttyUSB0 \
         -v $HOME/Arduino:/home/developer/Arduino \
-        tombenke/darduino \
+        jteich/darduino:latest \
         arduino
 ```
 
@@ -56,6 +56,23 @@ or just simply run the `./arduino.sh` shell script, which contains the command l
 
 In case you want to make changes, then start the container without the `--rm` switch, 
 and execute the `commit` and `push` docker commands.
+
+## Running under macOS
+
+(current as of macOS Monterey)
+1. Install XQuartz
+   Get the installation file from https://www.xquartz.org/index.html or install with Brew using  `brew update && brew install xquartz`
+2. Start XQuartz
+3. Go to menu > Preferences > Security
+4. Ensure that "Allow connections from network clients" is selected
+5. Shutdown and restart XQuartz
+At this point, XQuartz should allow connections from the Docker contianer
+
+## Building the Container
+
+(only necessary if you want to make changes to the container, otherwise, you can just use the prebuild image)
+1. `docker build -t darduino .`
+If you do this, you will need to update the container name in the run script; in other words, replace `jteich/darduino:latest` with `darduino`
 
 ### ESP8266 Board Manager usage
 
